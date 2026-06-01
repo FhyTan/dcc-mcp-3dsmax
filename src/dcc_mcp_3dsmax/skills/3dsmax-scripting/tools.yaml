@@ -46,6 +46,20 @@ tools:
       idempotent_hint: false
       open_world_hint: true
 
+    intent: "Execute explicit Python code inside the 3ds Max session with pymxs pre-bound."
+    tool_role: escape_hatch
+    risk: host_script_execution
+    search_aliases: ["execute_python", "execute python", "execute python"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: execute_maxscript
     description: >-
       Execute explicit MaxScript in the current 3ds Max session via
@@ -89,6 +103,20 @@ tools:
       idempotent_hint: false
       open_world_hint: true
 
+    intent: "Execute explicit MaxScript code in the 3ds Max session."
+    tool_role: escape_hatch
+    risk: host_script_execution
+    search_aliases: ["execute_maxscript", "execute maxscript", "execute maxscript"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: run_python_check
     description: >-
       Evaluate a small Python expression against pymxs, rt, and runtime for
@@ -127,6 +155,20 @@ tools:
       idempotent_hint: false
       open_world_hint: true
 
+    intent: "Evaluate a small Python expression for host-side debugging."
+    tool_role: action
+    risk: medium
+    search_aliases: ["run_python_check", "run python check", "run python check"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: list_runtime_symbols
     description: >-
       List pymxs runtime symbols with shallow callable/type metadata.
@@ -172,6 +214,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "List pymxs runtime symbols with callable/type metadata."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_runtime_symbols", "list runtime symbols", "runtime symbols"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: inspect_runtime_symbol
     description: >-
       Inspect one pymxs runtime symbol and return callable, type, signature,
@@ -210,6 +266,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Inspect one pymxs runtime symbol for callable, type, and signature."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["inspect_runtime_symbol", "inspect runtime symbol", "inspect runtime symbol"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: list_macros
     description: >-
       List host macro/action entries when pymxs.runtime.macros exposes a list
@@ -249,6 +319,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "List host macro/action entries from the 3ds Max macro system."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_macros", "list macros", "macros"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: resolve_node_reference
     description: >-
       Resolve a node by explicit node name or object handle and return a
@@ -289,6 +373,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Resolve a node by name or handle to a stable identity envelope."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["resolve_node_reference", "resolve node reference", "resolve node reference"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: reload_adapter_module
     description: >-
       Reload an adapter-owned dcc_mcp_3dsmax Python submodule during developer
@@ -327,3 +425,18 @@ tools:
       destructive_hint: false
       idempotent_hint: false
       open_world_hint: false
+
+    intent: "Reload an adapter-owned Python module during development."
+    tool_role: action
+    risk: medium
+    search_aliases: ["reload_adapter_module", "reload adapter module", "reload adapter module"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []

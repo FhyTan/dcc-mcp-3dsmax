@@ -24,6 +24,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "List display layers and optionally their member nodes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_layers", "list layers", "layers"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_layer
     description: Create a display layer by name.
     source_file: action_create_layer.py
@@ -43,6 +57,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Create a named display layer."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_layer", "create layer", "layer"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: delete_layer
     description: Delete a display layer by name.
     source_file: action_delete_layer.py
@@ -63,6 +91,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: true, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Delete a display layer, optionally deleting its member nodes."
+    tool_role: destructive
+    risk: high
+    search_aliases: ["delete_layer", "delete layer", "layer"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: true
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: assign_nodes_to_layer
     description: Assign explicit target nodes to a display layer.
     source_file: action_assign_nodes_to_layer.py
@@ -86,6 +128,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Move target nodes into a display layer."
+    tool_role: action
+    risk: medium
+    search_aliases: ["assign_nodes_to_layer", "assign nodes to layer", "assign nodes to layer"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: list_node_display_state
     description: List hidden/frozen/color/display-mode state for target nodes.
     source_file: action_list_node_display_state.py
@@ -106,6 +162,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Read hidden, frozen, color, and display mode for target nodes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_node_display_state", "list node display state", "node display state"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_node_display_state
     description: Set hidden/frozen/color/display-mode state on explicit target nodes.
     source_file: action_set_node_display_state.py
@@ -135,6 +205,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Set hidden, frozen, wire color, and display mode for target nodes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_node_display_state", "set node display state", "node display state"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: list_custom_properties
     description: List user-defined custom properties on target nodes.
     source_file: action_list_custom_properties.py
@@ -155,6 +239,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "List user-defined custom properties on target nodes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_custom_properties", "list custom properties", "custom properties"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_custom_property
     description: Get one user-defined custom property from explicit target nodes.
     source_file: action_get_custom_property.py
@@ -177,6 +275,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Read one custom property value from target nodes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_custom_property", "get custom property", "custom property"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_custom_property
     description: Set one user-defined custom property on explicit target nodes.
     source_file: action_set_custom_property.py
@@ -200,6 +312,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Set a custom property value on target nodes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_custom_property", "set custom property", "custom property"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: delete_custom_property
     description: Delete one user-defined custom property from explicit target nodes.
     source_file: action_delete_custom_property.py
@@ -221,3 +347,18 @@ tools:
     destructive: true
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: true, idempotent_hint: false, open_world_hint: false}
+
+    intent: "Delete a custom property from target nodes."
+    tool_role: destructive
+    risk: high
+    search_aliases: ["delete_custom_property", "delete custom property", "custom property"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: true
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []

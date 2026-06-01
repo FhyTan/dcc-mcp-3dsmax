@@ -36,3 +36,18 @@ tools:
       destructive_hint: false
       idempotent_hint: false
       open_world_hint: true
+
+    intent: "Capture the active 3ds Max viewport to a PNG file for visual proof."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["capture_viewport", "capture viewport", "capture viewport"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: true
+      render: false
+      targets: []
+    produces: []

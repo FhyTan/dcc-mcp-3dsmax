@@ -52,6 +52,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Set a transform keyframe on a node at a specific frame."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_keyframe", "set keyframe", "keyframe"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: play_animation
     description: >-
       Play the current 3ds Max animation range in the viewport. Use when the
@@ -92,6 +106,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Start viewport animation playback in the current frame range."
+    tool_role: action
+    risk: medium
+    search_aliases: ["play_animation", "play animation", "play animation"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_time_settings
     description: Query current time, frame range, and frame rate.
     source_file: action_get_time_settings.py
@@ -116,6 +144,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Query current timeline frame, frame range, and frame rate."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_time_settings", "get time settings", "time settings"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_animation_controllers
     description: Query transform controller metadata for explicit targets.
     source_file: action_get_animation_controllers.py
@@ -136,6 +178,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Query transform controller metadata for target nodes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_animation_controllers", "get animation controllers", "animation controllers"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: list_keyframes
     description: List keyframes on explicit targets.
     source_file: action_list_keyframes.py
@@ -150,6 +206,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "List keyframes on target nodes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_keyframes", "list keyframes", "keyframes"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_current_time
     description: Set the current timeline time.
     source_file: action_set_current_time.py
@@ -169,6 +239,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Set the current timeline frame."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_current_time", "set current time", "current time"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_timeline_settings
     description: Set timeline frame range and frame rate.
     source_file: action_set_timeline_settings.py
@@ -189,6 +273,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Configure timeline start/end frame and frame rate."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_timeline_settings", "set timeline settings", "timeline settings"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_transform_keyframe
     description: Set a transform keyframe on explicit targets.
     source_file: action_set_transform_keyframe.py
@@ -213,6 +311,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Set a transform keyframe on target nodes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_transform_keyframe", "set transform keyframe", "transform keyframe"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: delete_keyframes
     description: Delete matching keyframes on explicit targets.
     source_file: action_delete_keyframes.py
@@ -235,6 +347,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: true, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Delete keyframes matching criteria on target nodes."
+    tool_role: destructive
+    risk: high
+    search_aliases: ["delete_keyframes", "delete keyframes", "keyframes"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: true
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_key_interpolation
     description: Set interpolation metadata on matching keys.
     source_file: action_set_key_interpolation.py
@@ -258,6 +384,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Set interpolation type on matching keyframes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_key_interpolation", "set key interpolation", "key interpolation"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: bake_transform_animation
     description: Bake simple transform animation samples on explicit targets.
     source_file: action_bake_transform_animation.py
@@ -282,6 +422,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Bake transform animation samples over a frame range."
+    tool_role: action
+    risk: medium
+    search_aliases: ["bake_transform_animation", "bake transform animation", "bake transform animation"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: export_animation_curves
     description: Export simple animation curve data for explicit targets.
     source_file: action_export_animation_curves.py
@@ -296,6 +450,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Export animation curve data for target nodes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["export_animation_curves", "export animation curves", "export animation curves"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: true
+      imports: false
+      file_output: true
+      render: false
+      targets: []
+    produces: []
   - name: import_animation_curves
     description: Import simple animation curve data using the documented public shape.
     source_file: action_import_animation_curves.py
@@ -316,3 +484,18 @@ tools:
     destructive: false
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
+
+    intent: "Import animation curve data from a public shape."
+    tool_role: action
+    risk: medium
+    search_aliases: ["import_animation_curves", "import animation curves", "import animation curves"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: true
+      file_output: false
+      render: false
+      targets: []
+    produces: []

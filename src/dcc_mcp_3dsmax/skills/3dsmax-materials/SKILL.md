@@ -16,6 +16,27 @@ metadata:
     search-hint: "3ds Max material create inspect assign bitmap texture map physical pbr roughness metalness missing paths"
     tags: "3dsmax, materials, shader, assignment, bitmap, pbr"
     tools: tools.yaml
+    intent: "Create, inspect, edit, and assign 3ds Max materials and bitmap textures."
+    search_aliases: ["materials", "materials"]
+    recall_context:
+      app_type: "3dsmax"
+      domain: "materials"
+      workflow_stage: "authoring"
+      task_category: "mutate"
+    preconditions:
+      - type: software
+        name: "3ds Max"
+        version: ">=2024"
+    side_effects:
+      creates: true
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: ["material", "bitmap", "scene_node"]
+    produces: ["material:standard", "material:physical", "material:assignment", "bitmap_connection"]
 ---
 
 # 3ds Max Material Tools

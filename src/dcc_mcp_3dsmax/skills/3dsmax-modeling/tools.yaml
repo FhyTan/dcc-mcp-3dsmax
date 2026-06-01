@@ -73,6 +73,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Create a box primitive with configurable dimensions and position."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_box", "create box", "box"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_sphere
     description: >-
       Create a sphere primitive in the current 3ds Max scene. Use when the user
@@ -137,6 +151,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Create a sphere primitive with configurable radius and position."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_sphere", "create sphere", "sphere"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_cylinder
     description: >-
       Create a cylinder primitive in the current 3ds Max scene. Use when the
@@ -206,6 +234,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Create a cylinder primitive with configurable radius, height, and position."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_cylinder", "create cylinder", "cylinder"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_plane
     description: >-
       Create a plane primitive in the current 3ds Max scene. Use when the user
@@ -274,3 +316,18 @@ tools:
       destructive_hint: false
       idempotent_hint: false
       open_world_hint: false
+
+    intent: "Create a plane primitive with configurable width, length, and position."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_plane", "create plane", "plane"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []

@@ -30,6 +30,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Summarize vertex, edge, and face counts for mesh targets."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_mesh_topology", "get mesh topology", "mesh topology"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_selected_mesh_topology
     description: Summarize topology for the current mesh selection.
     source_file: action_get_selected_mesh_topology.py
@@ -58,6 +72,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Summarize topology for the current mesh selection."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_selected_mesh_topology", "get selected mesh topology", "selected mesh topology"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_smoothing_groups
     description: Summarize smoothing group usage for explicit mesh targets.
     source_file: action_get_smoothing_groups.py
@@ -89,6 +117,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Summarize smoothing group usage on mesh targets."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_smoothing_groups", "get smoothing groups", "smoothing groups"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_modifier_stack
     description: Summarize modifier stack entries for explicit mesh targets.
     source_file: action_get_modifier_stack.py
@@ -120,6 +162,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Summarize modifier stack entries on mesh targets."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_modifier_stack", "get modifier stack", "modifier stack"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: triangulate_meshes
     description: Triangulate explicit mesh targets using a reversible modifier where available.
     source_file: action_triangulate_meshes.py
@@ -151,6 +207,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Triangulate mesh targets using a reversible modifier."
+    tool_role: action
+    risk: medium
+    search_aliases: ["triangulate_meshes", "triangulate meshes", "triangulate meshes"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: cleanup_meshes
     description: Run focused cleanup checks on explicit mesh targets.
     source_file: action_cleanup_meshes.py
@@ -183,6 +253,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Run focused cleanup checks like welding on mesh targets."
+    tool_role: action
+    risk: medium
+    search_aliases: ["cleanup_meshes", "cleanup meshes", "cleanup meshes"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: attach_meshes
     description: Attach source meshes into one explicit target mesh.
     source_file: action_attach_meshes.py
@@ -215,6 +299,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Attach source meshes into one explicit target mesh."
+    tool_role: action
+    risk: medium
+    search_aliases: ["attach_meshes", "attach meshes", "attach meshes"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: detach_selected_faces
     description: Detach explicit faces or the current face selection into a separate node.
     source_file: action_detach_selected_faces.py
@@ -248,6 +346,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Detach faces into a separate mesh node."
+    tool_role: action
+    risk: medium
+    search_aliases: ["detach_selected_faces", "detach selected faces", "detach selected faces"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: apply_subdivision
     description: Add a subdivision modifier to explicit mesh targets.
     source_file: action_apply_subdivision.py
@@ -281,6 +393,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Add a subdivision modifier with configurable iterations."
+    tool_role: action
+    risk: medium
+    search_aliases: ["apply_subdivision", "apply subdivision", "apply subdivision"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_proxy_meshes
     description: Duplicate explicit meshes and add a proxy reduction modifier where available.
     source_file: action_create_proxy_meshes.py
@@ -314,6 +440,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Duplicate meshes and add a proxy reduction modifier."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_proxy_meshes", "create proxy meshes", "proxy meshes"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_explicit_normals
     description: Set explicit normal data for explicit mesh targets.
     source_file: action_set_explicit_normals.py
@@ -351,6 +491,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Set explicit normal vectors on mesh targets."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_explicit_normals", "set explicit normals", "explicit normals"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: clear_explicit_normals
     description: Clear explicit normal data for explicit mesh targets.
     source_file: action_clear_explicit_normals.py
@@ -382,6 +536,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Clear explicit normal data on mesh targets."
+    tool_role: action
+    risk: medium
+    search_aliases: ["clear_explicit_normals", "clear explicit normals", "clear explicit normals"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: assign_smoothing_group
     description: Assign a smoothing group to explicit mesh targets and optional face indices.
     source_file: action_assign_smoothing_group.py
@@ -415,3 +583,18 @@ tools:
       destructive_hint: false
       idempotent_hint: false
       open_world_hint: false
+
+    intent: "Assign a smoothing group number to mesh targets."
+    tool_role: action
+    risk: medium
+    search_aliases: ["assign_smoothing_group", "assign smoothing group", "assign smoothing group"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []

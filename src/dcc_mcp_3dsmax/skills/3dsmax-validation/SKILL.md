@@ -14,6 +14,27 @@ metadata:
     search-hint: "3ds Max validation asset readiness naming transform pivot topology material texture UV overlap"
     tags: "3dsmax, validation, asset-readiness, topology, uv"
     tools: tools.yaml
+    intent: "Run read-only asset-readiness validation checks on 3ds Max scene nodes before export or handoff."
+    search_aliases: ["validation", "validation"]
+    recall_context:
+      app_type: "3dsmax"
+      domain: "validation"
+      workflow_stage: "authoring"
+      task_category: "diagnose"
+    preconditions:
+      - type: software
+        name: "3ds Max"
+        version: ">=2024"
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: ["validation_report", "naming_report", "transform_report", "topology_report", "material_report"]
 ---
 
 # 3ds Max Validation Tools

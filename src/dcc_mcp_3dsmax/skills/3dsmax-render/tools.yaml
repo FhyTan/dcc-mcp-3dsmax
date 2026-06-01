@@ -26,6 +26,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: true, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Capture the active viewport to an image file."
+    tool_role: destructive
+    risk: high
+    search_aliases: ["capture_viewport", "capture viewport", "capture viewport"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: true
+      render: false
+      targets: []
+    produces: []
   - name: create_preview
     description: Generate a viewport preview/playblast artifact.
     source_file: action_create_preview.py
@@ -48,6 +62,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: true, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Generate a viewport preview/playblast video artifact."
+    tool_role: destructive
+    risk: high
+    search_aliases: ["create_preview", "create preview", "preview"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: true
+      render: false
+      targets: []
+    produces: []
   - name: get_render_settings
     description: Inspect common render settings.
     source_file: action_get_render_settings.py
@@ -65,6 +93,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Inspect common render settings."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_render_settings", "get render settings", "render settings"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_scene_render_statistics
     description: Return scene statistics relevant to rendering.
     source_file: action_get_scene_render_statistics.py
@@ -82,6 +124,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Return scene statistics relevant to rendering."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_scene_render_statistics", "get scene render statistics", "scene render statistics"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_render_output_options
     description: Set render output filename and save-file flag.
     source_file: action_set_render_output_options.py
@@ -101,6 +157,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Set render output filename and save-file flag."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_render_output_options", "set render output options", "render output options"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_frame_range
     description: Set animation/render frame range.
     source_file: action_set_frame_range.py
@@ -121,6 +191,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Set animation/render frame range."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_frame_range", "set frame range", "frame range"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_render_resolution
     description: Set render resolution.
     source_file: action_set_render_resolution.py
@@ -141,6 +225,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Set render output width and height."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_render_resolution", "set render resolution", "render resolution"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_render_camera
     description: Set the active render camera by name or object handle.
     source_file: action_set_render_camera.py
@@ -160,6 +258,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Set the active render camera by name or object handle."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_render_camera", "set render camera", "render camera"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_render_quality_preset
     description: Set a common render quality preset.
     source_file: action_set_render_quality_preset.py
@@ -178,3 +290,18 @@ tools:
     destructive: false
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
+
+    intent: "Set a render quality preset (draft, preview, final)."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_render_quality_preset", "set render quality preset", "render quality preset"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []

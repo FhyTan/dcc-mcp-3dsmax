@@ -15,6 +15,27 @@ metadata:
     search-hint: "3ds Max scripting MaxScript Python runtime symbols macros nodes developer debugging"
     tags: "3dsmax, scripting, maxscript, python, introspection, developer"
     tools: tools.yaml
+    intent: "Execute auditable Python or MaxScript snippets and inspect 3ds Max runtime symbols for debugging."
+    search_aliases: ["scripting", "scripting"]
+    recall_context:
+      app_type: "3dsmax"
+      domain: "scripting"
+      workflow_stage: "authoring"
+      task_category: "diagnose"
+    preconditions:
+      - type: software
+        name: "3ds Max"
+        version: ">=2024"
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: ["host_runtime"]
+    produces: ["runtime_symbols", "macro_list", "node_reference"]
 ---
 
 # 3ds Max Scripting And Developer Introspection

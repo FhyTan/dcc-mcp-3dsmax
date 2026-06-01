@@ -15,6 +15,27 @@ metadata:
     search-hint: "3ds Max transform position move translate place object node"
     tags: "3dsmax, transform, position, move, translate"
     tools: tools.yaml
+    intent: "Move, position, translate, and offset 3ds Max scene nodes to exact or relative coordinates."
+    search_aliases: ["transform", "transform"]
+    recall_context:
+      app_type: "3dsmax"
+      domain: "transform"
+      workflow_stage: "authoring"
+      task_category: "mutate"
+    preconditions:
+      - type: software
+        name: "3ds Max"
+        version: ">=2024"
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: ["scene_node", "transform"]
+    produces: ["scene_node:transform", "node_position"]
 ---
 
 # 3ds Max Transform Tools
