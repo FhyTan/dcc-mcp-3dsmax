@@ -37,7 +37,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['layer_list']
   - name: create_layer
     description: Create a display layer by name.
     source_file: action_create_layer.py
@@ -70,7 +70,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['layer']
   - name: delete_layer
     description: Delete a display layer by name.
     source_file: action_delete_layer.py
@@ -103,8 +103,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['layers']
+    produces: ['deletion_result']
   - name: assign_nodes_to_layer
     description: Assign explicit target nodes to a display layer.
     source_file: action_assign_nodes_to_layer.py
@@ -140,8 +140,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes', 'layers']
+    produces: ['layer']
   - name: list_node_display_state
     description: List hidden/frozen/color/display-mode state for target nodes.
     source_file: action_list_node_display_state.py
@@ -174,8 +174,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['display_state']
   - name: set_node_display_state
     description: Set hidden/frozen/color/display-mode state on explicit target nodes.
     source_file: action_set_node_display_state.py
@@ -217,8 +217,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['display_state']
   - name: list_custom_properties
     description: List user-defined custom properties on target nodes.
     source_file: action_list_custom_properties.py
@@ -251,8 +251,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['property_list']
   - name: get_custom_property
     description: Get one user-defined custom property from explicit target nodes.
     source_file: action_get_custom_property.py
@@ -287,8 +287,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['property_value']
   - name: set_custom_property
     description: Set one user-defined custom property on explicit target nodes.
     source_file: action_set_custom_property.py
@@ -324,8 +324,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['property_value']
   - name: delete_custom_property
     description: Delete one user-defined custom property from explicit target nodes.
     source_file: action_delete_custom_property.py
@@ -360,5 +360,5 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['deletion_result']

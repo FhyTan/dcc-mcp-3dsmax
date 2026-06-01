@@ -38,8 +38,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['uv_channel_list']
   - name: create_uv_channel
     description: Create or enable a UV/map channel on explicit targets.
     source_file: action_create_uv_channel.py
@@ -81,8 +81,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['uv_channel']
   - name: delete_uv_channel
     description: Delete or disable a UV/map channel on explicit targets.
     source_file: action_delete_uv_channel.py
@@ -124,8 +124,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes', 'uv_channels']
+    produces: ['deletion_result']
   - name: copy_uv_channel
     description: Copy UV data from one channel to another on explicit targets.
     source_file: action_copy_uv_channel.py
@@ -168,8 +168,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes', 'uv_channels']
+    produces: ['uv_channel']
   - name: get_uv_shell_summary
     description: Summarize UV shells/elements for one channel on explicit targets.
     source_file: action_get_uv_shell_summary.py
@@ -211,8 +211,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['uv_shell_summary']
   - name: apply_uv_projection
     description: Add a UVW Map projection modifier to explicit targets.
     source_file: action_apply_uv_projection.py
@@ -258,8 +258,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['uv_data']
   - name: unwrap_uvs
     description: Add an Unwrap UVW modifier to explicit targets.
     source_file: action_unwrap_uvs.py
@@ -301,8 +301,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['uv_data']
   - name: pack_uvs
     description: Pack UVs on explicit targets using Unwrap UVW where available.
     source_file: action_pack_uvs.py
@@ -345,8 +345,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['uv_data']
   - name: detect_uv_overlaps
     description: Report known UV overlaps for a channel on explicit targets.
     source_file: action_detect_uv_overlaps.py
@@ -388,8 +388,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['uv_overlap_report']
   - name: normalize_uvs
     description: Normalize UVs on explicit targets using Unwrap UVW where available.
     source_file: action_normalize_uvs.py
@@ -431,8 +431,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['uv_data']
   - name: prepare_texture_atlas
     description: Collect material and bitmap usage for texture-atlas planning.
     source_file: action_prepare_texture_atlas.py
@@ -472,5 +472,5 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['texture_atlas']

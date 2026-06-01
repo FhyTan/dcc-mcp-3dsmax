@@ -42,7 +42,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_info']
   - name: list_scene_nodes
     description: >-
       List scene nodes with stable identity, class, parent, visibility, and
@@ -99,7 +99,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['node_list']
   - name: list_cameras
     description: >-
       List camera nodes in the current scene.
@@ -142,7 +142,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['camera_list']
   - name: get_selection
     description: >-
       Return the current 3ds Max selection.
@@ -185,7 +185,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['selection_info']
   - name: get_bounding_box
     description: >-
       Get a node bounding box by name or object handle.
@@ -234,8 +234,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['bounding_box']
   - name: get_node_visibility
     description: >-
       Get visibility for one node by name or object handle.
@@ -284,8 +284,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['visibility_state']
   - name: get_scene_metadata
     description: >-
       Return session and scene metadata including scene path, units, version,
@@ -329,7 +329,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_metadata']
   - name: set_selection
     description: >-
       Set or extend the active 3ds Max selection by node names or object
@@ -384,8 +384,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['selection_state']
   - name: duplicate_nodes
     description: >-
       Duplicate nodes by node names or object handles.
@@ -432,15 +432,16 @@ tools:
     risk: medium
     search_aliases: ["duplicate_nodes", "duplicate nodes", "duplicate nodes"]
     side_effects:
-      creates: false
+      creates: true
       modifies: true
       deletes: false
       exports: false
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ["scene_nodes"]
+    produces:
+      - "scene_nodes"
   - name: delete_nodes
     description: >-
       Delete scene nodes by node names or object handles.
@@ -490,8 +491,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['deletion_result']
   - name: group_nodes
     description: >-
       Group nodes under a new group node.
@@ -539,15 +540,16 @@ tools:
     risk: medium
     search_aliases: ["group_nodes", "group nodes", "group nodes"]
     side_effects:
-      creates: false
+      creates: true
       modifies: true
       deletes: false
       exports: false
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ["scene_nodes"]
+    produces:
+      - "scene_nodes"
   - name: parent_node
     description: >-
       Parent one child node under another node.
@@ -603,8 +605,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: unparent_node
     description: >-
       Detach one node from its parent.
@@ -653,8 +655,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: set_visibility
     description: >-
       Set visibility for nodes by names or object handles.
@@ -708,8 +710,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['visibility_state']
   - name: center_pivots
     description: >-
       Center pivots for nodes by names or object handles.
@@ -759,8 +761,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: freeze_transforms
     description: >-
       Freeze or reset transforms for nodes by names or object handles.
@@ -810,5 +812,5 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']

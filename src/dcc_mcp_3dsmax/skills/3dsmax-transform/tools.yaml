@@ -73,8 +73,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: move_nodes
     description: >-
       Move named nodes, selected nodes, or both by a relative XYZ offset. Use
@@ -155,5 +155,5 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']

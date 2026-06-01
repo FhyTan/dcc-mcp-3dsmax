@@ -75,7 +75,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['material']
   - name: apply_material
     description: >-
       Apply an existing material to selected or named 3ds Max nodes. Use after
@@ -133,8 +133,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes', 'materials']
+    produces: ['material_assignment']
   - name: list_scene_materials
     description: List scene materials with common parameters and bitmap connections.
     source_file: action_list_scene_materials.py
@@ -172,7 +172,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['material_list']
   - name: list_node_material_assignments
     description: List material assignments for explicit nodes or the current selection.
     source_file: action_list_node_material_assignments.py
@@ -212,8 +212,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['material_assignment_list']
   - name: inspect_material
     description: Inspect common parameters and maps for one material.
     source_file: action_inspect_material.py
@@ -252,8 +252,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['materials']
+    produces: ['material_info']
   - name: list_bitmap_connections
     description: List bitmap/map connections for one material.
     source_file: action_list_bitmap_connections.py
@@ -292,8 +292,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['materials']
+    produces: ['bitmap_connections']
   - name: create_physical_material
     description: Create a Physical/PBR-friendly material when the host supports it.
     source_file: action_create_physical_material.py
@@ -336,7 +336,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['material']
   - name: create_pbr_material
     description: Create a PBR-friendly material using Physical material where available.
     source_file: action_create_pbr_material.py
@@ -379,7 +379,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['material']
   - name: reset_material
     description: Reset explicit nodes or selection to no material or a named default material.
     source_file: action_reset_material.py
@@ -420,8 +420,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['materials']
+    produces: ['material']
   - name: set_material_attributes
     description: Set common material attributes such as base color, roughness, metalness, opacity, and glossiness.
     source_file: action_set_material_attributes.py
@@ -463,8 +463,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['materials']
+    produces: ['material']
   - name: assign_bitmap_texture
     description: Assign a bitmap texture path to a common material map slot.
     source_file: action_assign_bitmap_texture.py
@@ -506,8 +506,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['materials']
+    produces: ['material']
   - name: report_missing_textures
     description: Report missing bitmap texture paths for scene materials.
     source_file: action_report_missing_textures.py
@@ -545,5 +545,5 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['materials']
+    produces: ['texture_report']

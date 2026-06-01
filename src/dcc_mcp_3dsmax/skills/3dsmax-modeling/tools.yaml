@@ -86,7 +86,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_nodes']
   - name: create_sphere
     description: >-
       Create a sphere primitive in the current 3ds Max scene. Use when the user
@@ -164,7 +164,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_nodes']
   - name: create_cylinder
     description: >-
       Create a cylinder primitive in the current 3ds Max scene. Use when the
@@ -247,7 +247,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_nodes']
   - name: create_plane
     description: >-
       Create a plane primitive in the current 3ds Max scene. Use when the user
@@ -330,4 +330,4 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_nodes']
