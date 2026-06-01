@@ -14,6 +14,27 @@ metadata:
     search-hint: "3ds Max render viewport capture playblast preview settings resolution frame range camera quality"
     tags: "3dsmax, render, viewport, capture, playblast, camera"
     tools: tools.yaml
+    intent: "Capture viewports, create preview playblasts, and configure 3ds Max render settings."
+    search_aliases: ["rendering", "render"]
+    recall_context:
+      app_type: "3dsmax"
+      domain: "rendering"
+      workflow_stage: "authoring"
+      task_category: "mutate"
+    preconditions:
+      - type: software
+        name: "3ds Max"
+        version: ">=2024"
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: true
+      imports: false
+      file_output: true
+      render: true
+      targets: ["file:image", "file:video", "render_settings"]
+    produces: ["file:image", "file:preview", "render_settings"]
 ---
 
 # 3ds Max Render and Viewport Skill

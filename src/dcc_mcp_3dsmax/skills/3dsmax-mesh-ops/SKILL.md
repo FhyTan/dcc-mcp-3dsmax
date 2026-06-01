@@ -15,6 +15,27 @@ metadata:
     search-hint: "3ds Max mesh cleanup topology normals smoothing groups modifiers triangulate attach detach proxy subdivision"
     tags: "3dsmax, mesh, topology, cleanup, normals, smoothing, modifiers"
     tools: tools.yaml
+    intent: "Inspect and mutate 3ds Max mesh topology, cleanup, smoothing groups, modifiers, and normals."
+    search_aliases: ["mesh_operations", "mesh-ops"]
+    recall_context:
+      app_type: "3dsmax"
+      domain: "mesh_operations"
+      workflow_stage: "authoring"
+      task_category: "mutate"
+    preconditions:
+      - type: software
+        name: "3ds Max"
+        version: ">=2024"
+    side_effects:
+      creates: true
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: ["mesh", "scene_node", "modifier", "smoothing_group"]
+    produces: ["mesh_topology", "smoothing_group", "modifier_stack", "proxy_mesh"]
 ---
 
 # 3ds Max Mesh Operations Skill

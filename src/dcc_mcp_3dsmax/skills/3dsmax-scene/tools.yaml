@@ -29,6 +29,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Get basic scene information like name, units, and node counts."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_scene_info", "get scene info", "scene info"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: list_scene_nodes
     description: >-
       List scene nodes with stable identity, class, parent, visibility, and
@@ -72,6 +86,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "List scene nodes with class, parent, visibility, and camera flags."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_scene_nodes", "list scene nodes", "scene nodes"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: list_cameras
     description: >-
       List camera nodes in the current scene.
@@ -101,6 +129,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "List camera nodes in the current scene."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_cameras", "list cameras", "cameras"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_selection
     description: >-
       Return the current 3ds Max selection.
@@ -130,6 +172,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Return the current 3ds Max selection."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_selection", "get selection", "selection"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_bounding_box
     description: >-
       Get a node bounding box by name or object handle.
@@ -166,6 +222,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Get a node bounding box by name or object handle."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_bounding_box", "get bounding box", "bounding box"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_node_visibility
     description: >-
       Get visibility for one node by name or object handle.
@@ -202,6 +272,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Get visibility state for one node."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_node_visibility", "get node visibility", "node visibility"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_scene_metadata
     description: >-
       Return session and scene metadata including scene path, units, version,
@@ -232,6 +316,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Return session metadata including scene path, units, and version."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_scene_metadata", "get scene metadata", "scene metadata"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_selection
     description: >-
       Set or extend the active 3ds Max selection by node names or object
@@ -274,6 +372,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Set or extend the active selection by node names or handles."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_selection", "set selection", "selection"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: duplicate_nodes
     description: >-
       Duplicate nodes by node names or object handles.
@@ -315,6 +427,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Duplicate nodes by names or object handles."
+    tool_role: action
+    risk: medium
+    search_aliases: ["duplicate_nodes", "duplicate nodes", "duplicate nodes"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: delete_nodes
     description: >-
       Delete scene nodes by node names or object handles.
@@ -352,6 +478,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Delete scene nodes by names or object handles."
+    tool_role: destructive
+    risk: high
+    search_aliases: ["delete_nodes", "delete nodes", "nodes"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: true
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: group_nodes
     description: >-
       Group nodes under a new group node.
@@ -394,6 +534,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Group nodes under a new group node."
+    tool_role: action
+    risk: medium
+    search_aliases: ["group_nodes", "group nodes", "group nodes"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: parent_node
     description: >-
       Parent one child node under another node.
@@ -437,6 +591,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Parent one node under another."
+    tool_role: action
+    risk: medium
+    search_aliases: ["parent_node", "parent node", "parent node"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: unparent_node
     description: >-
       Detach one node from its parent.
@@ -473,6 +641,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Detach a node from its parent."
+    tool_role: action
+    risk: medium
+    search_aliases: ["unparent_node", "unparent node", "unparent node"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_visibility
     description: >-
       Set visibility for nodes by names or object handles.
@@ -514,6 +696,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Set visibility state for nodes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_visibility", "set visibility", "visibility"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: center_pivots
     description: >-
       Center pivots for nodes by names or object handles.
@@ -551,6 +747,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Center pivots for target nodes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["center_pivots", "center pivots", "center pivots"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: freeze_transforms
     description: >-
       Freeze or reset transforms for nodes by names or object handles.
@@ -587,3 +797,18 @@ tools:
       destructive_hint: false
       idempotent_hint: false
       open_world_hint: false
+
+    intent: "Freeze or reset transforms for target nodes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["freeze_transforms", "freeze transforms", "freeze transforms"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []

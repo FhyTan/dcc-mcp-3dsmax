@@ -23,6 +23,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "List all camera nodes with properties and enabled state."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_cameras", "list cameras", "cameras"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: list_lights
     description: List light nodes with transform, enabled state, intensity, color, and shadow settings.
     source_file: action_list_lights.py
@@ -40,6 +54,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "List all light nodes with intensity, color, and shadow settings."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_lights", "list lights", "lights"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_camera
     description: Create a host-native camera node.
     source_file: action_create_camera.py
@@ -67,6 +95,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Create a new camera node at a specified position."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_camera", "create camera", "camera"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_active_camera
     description: Set the active/render camera after validating the target node.
     source_file: action_set_active_camera.py
@@ -86,6 +128,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Set which camera is used for rendering."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_active_camera", "set active camera", "active camera"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_light
     description: Create a host-native light node.
     source_file: action_create_light.py
@@ -115,6 +171,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Create a new light node of the specified type."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_light", "create light", "light"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_light_properties
     description: Adjust common light properties after validating the target node.
     source_file: action_set_light_properties.py
@@ -138,6 +208,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Adjust intensity, color, shadows, and enabled state of a light."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_light_properties", "set light properties", "light properties"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_three_point_light_rig
     description: Create a small three-point review lighting rig with fallback errors if lights are unavailable.
     source_file: action_create_three_point_light_rig.py
@@ -157,3 +241,18 @@ tools:
     destructive: false
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
+
+    intent: "Create a key, fill, and rim light setup for review."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_three_point_light_rig", "create three point light rig", "three point light rig"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []

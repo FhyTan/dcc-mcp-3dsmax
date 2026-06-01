@@ -15,6 +15,27 @@ metadata:
     search-hint: "3ds Max create box sphere cylinder plane primitive geometry modeling position"
     tags: "3dsmax, modeling, geometry, primitives"
     tools: tools.yaml
+    intent: "Create basic 3ds Max primitive geometry: boxes, spheres, cylinders, and planes."
+    search_aliases: ["modeling", "modeling"]
+    recall_context:
+      app_type: "3dsmax"
+      domain: "modeling"
+      workflow_stage: "authoring"
+      task_category: "mutate"
+    preconditions:
+      - type: software
+        name: "3ds Max"
+        version: ">=2024"
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: ["scene_node", "primitive"]
+    produces: ["scene_node:primitive", "scene_node:box", "scene_node:sphere", "scene_node:cylinder", "scene_node:plane"]
 ---
 
 # 3ds Max Modeling Tools

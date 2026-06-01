@@ -38,6 +38,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Check that a geometry file exists and has a supported format."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["validate_geometry_file", "validate geometry file", "validate geometry file"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: import_fbx
     description: >-
       Import an FBX file into the current scene and return created node
@@ -90,6 +104,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Import an FBX file into the scene with configurable options."
+    tool_role: action
+    risk: medium
+    search_aliases: ["import_fbx", "import fbx", "import fbx"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: true
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: import_geometry
     description: >-
       Import a supported geometry file using the format inferred from the file
@@ -134,6 +162,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Import a geometry file with format auto-detection."
+    tool_role: action
+    risk: medium
+    search_aliases: ["import_geometry", "import geometry", "import geometry"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: true
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: export_fbx
     description: >-
       Export selected nodes or the whole scene to FBX with output path and
@@ -197,6 +239,20 @@ tools:
       idempotent_hint: false
       open_world_hint: false
 
+    intent: "Export scene nodes or selection to an FBX file."
+    tool_role: destructive
+    risk: high
+    search_aliases: ["export_fbx", "export fbx", "export fbx"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: true
+      imports: false
+      file_output: true
+      render: false
+      targets: []
+    produces: []
   - name: export_obj
     description: >-
       Export selected nodes or the whole scene to OBJ with output path and
@@ -239,3 +295,18 @@ tools:
       destructive_hint: true
       idempotent_hint: false
       open_world_hint: false
+
+    intent: "Export scene nodes or selection to an OBJ file."
+    tool_role: destructive
+    risk: high
+    search_aliases: ["export_obj", "export obj", "export obj"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: true
+      imports: false
+      file_output: true
+      render: false
+      targets: []
+    produces: []

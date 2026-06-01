@@ -61,6 +61,20 @@ tools:
       idempotent_hint: true
       open_world_hint: false
 
+    intent: "Set a node to an absolute XYZ position."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_node_position", "set node position", "node position"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: move_nodes
     description: >-
       Move named nodes, selected nodes, or both by a relative XYZ offset. Use
@@ -128,3 +142,18 @@ tools:
       destructive_hint: false
       idempotent_hint: false
       open_world_hint: false
+
+    intent: "Move nodes by a relative XYZ offset."
+    tool_role: action
+    risk: medium
+    search_aliases: ["move_nodes", "move nodes", "move nodes"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []

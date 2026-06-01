@@ -15,6 +15,27 @@ metadata:
     search-hint: "3ds Max animation keyframe playback timeline transform controllers bake curve import export"
     tags: "3dsmax, animation, keyframe, timeline, curves"
     tools: tools.yaml
+    intent: "Inspect and manipulate 3ds Max animation keyframes, timeline, and playback controls."
+    search_aliases: ["animation", "animation"]
+    recall_context:
+      app_type: "3dsmax"
+      domain: "animation"
+      workflow_stage: "authoring"
+      task_category: "mutate"
+    preconditions:
+      - type: software
+        name: "3ds Max"
+        version: ">=2024"
+    side_effects:
+      creates: true
+      modifies: true
+      deletes: true
+      exports: true
+      imports: true
+      file_output: true
+      render: false
+      targets: ["scene_node", "keyframe", "timeline", "file:animation_curve"]
+    produces: ["keyframe_data", "animation_curve", "timeline_state"]
 ---
 
 # 3ds Max Animation Tools

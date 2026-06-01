@@ -26,6 +26,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "List UV/map channels on target mesh nodes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_uv_channels", "list uv channels", "uv channels"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_uv_channel
     description: Create or enable a UV/map channel on explicit targets.
     source_file: action_create_uv_channel.py
@@ -55,6 +69,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Create or enable a UV/map channel on target meshes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_uv_channel", "create uv channel", "uv channel"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: delete_uv_channel
     description: Delete or disable a UV/map channel on explicit targets.
     source_file: action_delete_uv_channel.py
@@ -84,6 +112,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: true, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Delete or disable a UV/map channel on target meshes."
+    tool_role: destructive
+    risk: high
+    search_aliases: ["delete_uv_channel", "delete uv channel", "uv channel"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: true
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: copy_uv_channel
     description: Copy UV data from one channel to another on explicit targets.
     source_file: action_copy_uv_channel.py
@@ -114,6 +156,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Copy UV data from one channel to another on target meshes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["copy_uv_channel", "copy uv channel", "copy uv channel"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_uv_shell_summary
     description: Summarize UV shells/elements for one channel on explicit targets.
     source_file: action_get_uv_shell_summary.py
@@ -143,6 +199,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Summarize UV shells/elements for a channel on target meshes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_uv_shell_summary", "get uv shell summary", "uv shell summary"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: apply_uv_projection
     description: Add a UVW Map projection modifier to explicit targets.
     source_file: action_apply_uv_projection.py
@@ -176,6 +246,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Add a UVW Map projection modifier to target meshes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["apply_uv_projection", "apply uv projection", "apply uv projection"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: unwrap_uvs
     description: Add an Unwrap UVW modifier to explicit targets.
     source_file: action_unwrap_uvs.py
@@ -205,6 +289,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Add an Unwrap UVW modifier to target meshes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["unwrap_uvs", "unwrap uvs", "unwrap uvs"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: pack_uvs
     description: Pack UVs on explicit targets using Unwrap UVW where available.
     source_file: action_pack_uvs.py
@@ -235,6 +333,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Pack UVs on target meshes using Unwrap UVW."
+    tool_role: action
+    risk: medium
+    search_aliases: ["pack_uvs", "pack uvs", "pack uvs"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: detect_uv_overlaps
     description: Report known UV overlaps for a channel on explicit targets.
     source_file: action_detect_uv_overlaps.py
@@ -264,6 +376,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Report UV overlap counts for a channel on target meshes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["detect_uv_overlaps", "detect uv overlaps", "detect uv overlaps"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: normalize_uvs
     description: Normalize UVs on explicit targets using Unwrap UVW where available.
     source_file: action_normalize_uvs.py
@@ -293,6 +419,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Normalize UVs on target meshes using Unwrap UVW."
+    tool_role: action
+    risk: medium
+    search_aliases: ["normalize_uvs", "normalize uvs", "normalize uvs"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: prepare_texture_atlas
     description: Collect material and bitmap usage for texture-atlas planning.
     source_file: action_prepare_texture_atlas.py
@@ -319,3 +459,18 @@ tools:
     destructive: false
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
+
+    intent: "Collect material and bitmap usage for texture atlas planning."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["prepare_texture_atlas", "prepare texture atlas", "prepare texture atlas"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []

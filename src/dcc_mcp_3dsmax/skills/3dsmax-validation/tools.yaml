@@ -28,6 +28,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Validate node names against a naming pattern."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["validate_naming", "validate naming", "validate naming"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: validate_transforms
     description: Validate zeroed position and rotation plus unit scale.
     source_file: action_validate_transforms.py
@@ -48,6 +62,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Validate that position/rotation are zeroed and scale is unit."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["validate_transforms", "validate transforms", "validate transforms"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: validate_pivots
     description: Validate pivot placement against origin or bounds center.
     source_file: action_validate_pivots.py
@@ -70,6 +98,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Validate pivot placement against bounds center or origin."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["validate_pivots", "validate pivots", "validate pivots"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: validate_mesh_topology
     description: Validate open edges, isolated vertices, triangles, quads, and non-quad counts.
     source_file: action_validate_mesh_topology.py
@@ -93,6 +135,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Validate open edges, isolated vertices, triangles, and ngons."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["validate_mesh_topology", "validate mesh topology", "validate mesh topology"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: validate_smoothing_groups
     description: Validate smoothing-group coverage on target meshes.
     source_file: action_validate_smoothing_groups.py
@@ -113,6 +169,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Validate smoothing group coverage on mesh targets."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["validate_smoothing_groups", "validate smoothing groups", "validate smoothing groups"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: validate_material_assignments
     description: Validate material assignment on target nodes.
     source_file: action_validate_material_assignments.py
@@ -133,6 +203,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Validate that target nodes have assigned materials."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["validate_material_assignments", "validate material assignments", "validate material assignments"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: validate_texture_paths
     description: Validate referenced texture file paths.
     source_file: action_validate_texture_paths.py
@@ -153,6 +237,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Validate that referenced texture file paths exist."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["validate_texture_paths", "validate texture paths", "validate texture paths"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: validate_uv_channels
     description: Validate required UV channels on target nodes.
     source_file: action_validate_uv_channels.py
@@ -174,6 +272,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Validate that required UV channels exist on target nodes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["validate_uv_channels", "validate uv channels", "validate uv channels"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: validate_uv_overlaps
     description: Validate UV overlap counts on target nodes.
     source_file: action_validate_uv_overlaps.py
@@ -195,6 +307,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "Validate UV overlap counts on target nodes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["validate_uv_overlaps", "validate uv overlaps", "validate uv overlaps"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: run_asset_readiness_checks
     description: Run selected validators and return an aggregate report with per-check details.
     source_file: action_run_asset_readiness_checks.py
@@ -221,3 +347,18 @@ tools:
     destructive: false
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
+
+    intent: "Run selected validators and return an aggregate report."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["run_asset_readiness_checks", "run asset readiness checks", "run asset readiness checks"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []

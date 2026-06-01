@@ -15,6 +15,27 @@ metadata:
     search-hint: "3ds Max geometry import export FBX OBJ 3DS file validation selected scene"
     tags: "3dsmax, geometry, io, import, export, fbx, obj"
     tools: tools.yaml
+    intent: "Import and export geometry files (FBX, OBJ, 3DS) in 3ds Max with validation."
+    search_aliases: ["io", "geometry-io"]
+    recall_context:
+      app_type: "3dsmax"
+      domain: "io"
+      workflow_stage: "authoring"
+      task_category: "mutate"
+    preconditions:
+      - type: software
+        name: "3ds Max"
+        version: ">=2024"
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: true
+      imports: true
+      file_output: true
+      render: false
+      targets: ["file:fbx", "file:obj", "file:3ds", "scene_node"]
+    produces: ["file:fbx", "file:obj", "scene_node"]
 ---
 
 # 3ds Max Geometry I/O Skill

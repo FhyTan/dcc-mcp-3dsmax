@@ -32,6 +32,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Create a helper node such as point, dummy, or expose transform."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_helper_node", "create helper node", "helper node"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_bone_node
     description: Create one bone primitive from start and end positions.
     source_file: action_create_bone_node.py
@@ -54,6 +68,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Create a single bone from start and end positions."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_bone_node", "create bone node", "bone node"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_joint_chain
     description: Create a simple parented bone chain from point positions.
     source_file: action_create_joint_chain.py
@@ -77,6 +105,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Create a parented bone chain from point positions."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_joint_chain", "create joint chain", "joint chain"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: create_path_helper
     description: Create a curve or path helper from public point data.
     source_file: action_create_path_helper.py
@@ -101,6 +143,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Create a curve or path helper from point data."
+    tool_role: action
+    risk: medium
+    search_aliases: ["create_path_helper", "create path helper", "path helper"]
+    side_effects:
+      creates: true
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: list_rig_state
     description: List controllers, constraints, modifiers, deformers, and skinning state on target nodes.
     source_file: action_list_rig_state.py
@@ -121,6 +177,20 @@ tools:
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
+    intent: "List controllers, constraints, modifiers, and skinning state on target nodes."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["list_rig_state", "list rig state", "rig state"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: apply_deformer_modifier
     description: Apply a common host-native deformer modifier to explicit targets.
     source_file: action_apply_deformer_modifier.py
@@ -146,6 +216,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Apply a deformer modifier like skin, bend, or twist."
+    tool_role: action
+    risk: medium
+    search_aliases: ["apply_deformer_modifier", "apply deformer modifier", "apply deformer modifier"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: remove_deformer_modifier
     description: Remove matching deformer modifiers from explicit targets.
     source_file: action_remove_deformer_modifier.py
@@ -168,6 +252,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: true, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Remove a deformer modifier from target nodes."
+    tool_role: destructive
+    risk: high
+    search_aliases: ["remove_deformer_modifier", "remove deformer modifier", "remove deformer modifier"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: true
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: set_constraint_target
     description: Create or update a basic transform constraint target with explicit node validation.
     source_file: action_set_constraint_target.py
@@ -192,6 +290,20 @@ tools:
     idempotent: false
     annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
+    intent: "Create or update a transform constraint between nodes."
+    tool_role: action
+    risk: medium
+    search_aliases: ["set_constraint_target", "set constraint target", "constraint target"]
+    side_effects:
+      creates: false
+      modifies: true
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
   - name: get_character_system_availability
     description: Check whether optional biped, CAT, or character helpers are available.
     source_file: action_get_character_system_availability.py
@@ -208,3 +320,18 @@ tools:
     destructive: false
     idempotent: true
     annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
+
+    intent: "Check if biped, CAT, or character helpers are available."
+    tool_role: read_only
+    risk: low
+    search_aliases: ["get_character_system_availability", "get character system availability", "character system availability"]
+    side_effects:
+      creates: false
+      modifies: false
+      deletes: false
+      exports: false
+      imports: false
+      file_output: false
+      render: false
+      targets: []
+    produces: []
