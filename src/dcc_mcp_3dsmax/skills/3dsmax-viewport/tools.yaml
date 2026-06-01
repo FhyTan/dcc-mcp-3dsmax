@@ -50,4 +50,4 @@ tools:
       file_output: true
       render: false
       targets: []
-    produces: []
+    produces: ['file:image']

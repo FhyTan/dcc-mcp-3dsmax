@@ -40,8 +40,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['validation_report']
   - name: validate_transforms
     description: Validate zeroed position and rotation plus unit scale.
     source_file: action_validate_transforms.py
@@ -74,8 +74,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['validation_report']
   - name: validate_pivots
     description: Validate pivot placement against origin or bounds center.
     source_file: action_validate_pivots.py
@@ -110,8 +110,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['validation_report']
   - name: validate_mesh_topology
     description: Validate open edges, isolated vertices, triangles, quads, and non-quad counts.
     source_file: action_validate_mesh_topology.py
@@ -147,8 +147,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['validation_report']
   - name: validate_smoothing_groups
     description: Validate smoothing-group coverage on target meshes.
     source_file: action_validate_smoothing_groups.py
@@ -181,8 +181,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['validation_report']
   - name: validate_material_assignments
     description: Validate material assignment on target nodes.
     source_file: action_validate_material_assignments.py
@@ -215,8 +215,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['materials']
+    produces: ['validation_report']
   - name: validate_texture_paths
     description: Validate referenced texture file paths.
     source_file: action_validate_texture_paths.py
@@ -249,8 +249,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['materials']
+    produces: ['validation_report']
   - name: validate_uv_channels
     description: Validate required UV channels on target nodes.
     source_file: action_validate_uv_channels.py
@@ -284,8 +284,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['validation_report']
   - name: validate_uv_overlaps
     description: Validate UV overlap counts on target nodes.
     source_file: action_validate_uv_overlaps.py
@@ -319,8 +319,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['validation_report']
   - name: run_asset_readiness_checks
     description: Run selected validators and return an aggregate report with per-check details.
     source_file: action_run_asset_readiness_checks.py
@@ -360,5 +360,5 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['validation_report']

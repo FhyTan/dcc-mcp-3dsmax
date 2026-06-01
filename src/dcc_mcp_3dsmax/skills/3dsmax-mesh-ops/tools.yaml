@@ -42,8 +42,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['mesh_topology']
   - name: get_selected_mesh_topology
     description: Summarize topology for the current mesh selection.
     source_file: action_get_selected_mesh_topology.py
@@ -85,7 +85,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['mesh_topology']
   - name: get_smoothing_groups
     description: Summarize smoothing group usage for explicit mesh targets.
     source_file: action_get_smoothing_groups.py
@@ -129,8 +129,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['smoothing_groups']
   - name: get_modifier_stack
     description: Summarize modifier stack entries for explicit mesh targets.
     source_file: action_get_modifier_stack.py
@@ -174,8 +174,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['modifier_list']
   - name: triangulate_meshes
     description: Triangulate explicit mesh targets using a reversible modifier where available.
     source_file: action_triangulate_meshes.py
@@ -219,8 +219,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: cleanup_meshes
     description: Run focused cleanup checks on explicit mesh targets.
     source_file: action_cleanup_meshes.py
@@ -265,8 +265,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: attach_meshes
     description: Attach source meshes into one explicit target mesh.
     source_file: action_attach_meshes.py
@@ -311,8 +311,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: detach_selected_faces
     description: Detach explicit faces or the current face selection into a separate node.
     source_file: action_detach_selected_faces.py
@@ -358,8 +358,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: apply_subdivision
     description: Add a subdivision modifier to explicit mesh targets.
     source_file: action_apply_subdivision.py
@@ -405,8 +405,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: create_proxy_meshes
     description: Duplicate explicit meshes and add a proxy reduction modifier where available.
     source_file: action_create_proxy_meshes.py
@@ -452,8 +452,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: set_explicit_normals
     description: Set explicit normal data for explicit mesh targets.
     source_file: action_set_explicit_normals.py
@@ -503,8 +503,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: clear_explicit_normals
     description: Clear explicit normal data for explicit mesh targets.
     source_file: action_clear_explicit_normals.py
@@ -548,8 +548,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: assign_smoothing_group
     description: Assign a smoothing group to explicit mesh targets and optional face indices.
     source_file: action_assign_smoothing_group.py
@@ -596,5 +596,5 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']

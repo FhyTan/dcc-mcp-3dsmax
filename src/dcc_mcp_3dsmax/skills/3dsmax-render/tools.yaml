@@ -21,25 +21,26 @@ tools:
         message: {type: string}
         data: {type: object}
     timeout_hint_secs: 60
-    read_only: false
-    destructive: true
-    idempotent: false
-    annotations: {read_only_hint: false, destructive_hint: true, idempotent_hint: false, open_world_hint: false}
+    read_only: true
+    destructive: false
+    idempotent: true
+    annotations: {read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false}
 
     intent: "Capture the active viewport to an image file."
-    tool_role: destructive
-    risk: high
+    tool_role: read_only
+    risk: low
     search_aliases: ["capture_viewport", "capture viewport", "capture viewport"]
     side_effects:
       creates: false
-      modifies: true
+      modifies: false
       deletes: false
       exports: false
       imports: false
       file_output: true
       render: false
       targets: []
-    produces: []
+    produces:
+      - "file:image"
   - name: create_preview
     description: Generate a viewport preview/playblast artifact.
     source_file: action_create_preview.py
@@ -58,16 +59,16 @@ tools:
     output_schema: *output_schema
     timeout_hint_secs: 180
     read_only: false
-    destructive: true
+    destructive: false
     idempotent: false
-    annotations: {read_only_hint: false, destructive_hint: true, idempotent_hint: false, open_world_hint: false}
+    annotations: {read_only_hint: false, destructive_hint: false, idempotent_hint: false, open_world_hint: false}
 
     intent: "Generate a viewport preview/playblast video artifact."
-    tool_role: destructive
-    risk: high
+    tool_role: action
+    risk: medium
     search_aliases: ["create_preview", "create preview", "preview"]
     side_effects:
-      creates: true
+      creates: false
       modifies: false
       deletes: false
       exports: false
@@ -75,7 +76,8 @@ tools:
       file_output: true
       render: false
       targets: []
-    produces: []
+    produces:
+      - "file:video"
   - name: get_render_settings
     description: Inspect common render settings.
     source_file: action_get_render_settings.py
@@ -106,7 +108,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['render_settings']
   - name: get_scene_render_statistics
     description: Return scene statistics relevant to rendering.
     source_file: action_get_scene_render_statistics.py
@@ -137,7 +139,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['render_statistics']
   - name: set_render_output_options
     description: Set render output filename and save-file flag.
     source_file: action_set_render_output_options.py
@@ -170,7 +172,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['render_settings']
   - name: set_frame_range
     description: Set animation/render frame range.
     source_file: action_set_frame_range.py
@@ -204,7 +206,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['frame_range']
   - name: set_render_resolution
     description: Set render resolution.
     source_file: action_set_render_resolution.py
@@ -238,7 +240,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['render_resolution']
   - name: set_render_camera
     description: Set the active render camera by name or object handle.
     source_file: action_set_render_camera.py
@@ -270,8 +272,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['render_settings']
   - name: set_render_quality_preset
     description: Set a common render quality preset.
     source_file: action_set_render_quality_preset.py
@@ -304,4 +306,4 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['render_settings']

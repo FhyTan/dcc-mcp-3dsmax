@@ -59,7 +59,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['script_result']
   - name: execute_maxscript
     description: >-
       Execute explicit MaxScript in the current 3ds Max session via
@@ -116,7 +116,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['script_result']
   - name: run_python_check
     description: >-
       Evaluate a small Python expression against pymxs, rt, and runtime for
@@ -168,7 +168,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['check_result']
   - name: list_runtime_symbols
     description: >-
       List pymxs runtime symbols with shallow callable/type metadata.
@@ -227,7 +227,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['symbol_list']
   - name: inspect_runtime_symbol
     description: >-
       Inspect one pymxs runtime symbol and return callable, type, signature,
@@ -279,7 +279,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['symbol_info']
   - name: list_macros
     description: >-
       List host macro/action entries when pymxs.runtime.macros exposes a list
@@ -332,7 +332,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['macro_list']
   - name: resolve_node_reference
     description: >-
       Resolve a node by explicit node name or object handle and return a
@@ -385,8 +385,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['node_reference']
   - name: reload_adapter_module
     description: >-
       Reload an adapter-owned dcc_mcp_3dsmax Python submodule during developer
@@ -439,4 +439,4 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['reload_result']

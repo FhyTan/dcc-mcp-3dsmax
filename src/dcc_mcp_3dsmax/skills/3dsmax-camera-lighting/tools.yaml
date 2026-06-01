@@ -36,7 +36,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['camera_list']
   - name: list_lights
     description: List light nodes with transform, enabled state, intensity, color, and shadow settings.
     source_file: action_list_lights.py
@@ -67,7 +67,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['light_list']
   - name: create_camera
     description: Create a host-native camera node.
     source_file: action_create_camera.py
@@ -108,7 +108,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_nodes']
   - name: set_active_camera
     description: Set the active/render camera after validating the target node.
     source_file: action_set_active_camera.py
@@ -140,8 +140,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_state']
   - name: create_light
     description: Create a host-native light node.
     source_file: action_create_light.py
@@ -184,7 +184,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_nodes']
   - name: set_light_properties
     description: Adjust common light properties after validating the target node.
     source_file: action_set_light_properties.py
@@ -220,8 +220,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: create_three_point_light_rig
     description: Create a small three-point review lighting rig with fallback errors if lights are unavailable.
     source_file: action_create_three_point_light_rig.py
@@ -255,4 +255,4 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_nodes']

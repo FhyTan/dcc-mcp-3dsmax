@@ -45,7 +45,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_nodes']
   - name: create_bone_node
     description: Create one bone primitive from start and end positions.
     source_file: action_create_bone_node.py
@@ -81,7 +81,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_nodes']
   - name: create_joint_chain
     description: Create a simple parented bone chain from point positions.
     source_file: action_create_joint_chain.py
@@ -118,7 +118,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_nodes']
   - name: create_path_helper
     description: Create a curve or path helper from public point data.
     source_file: action_create_path_helper.py
@@ -156,7 +156,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['scene_nodes']
   - name: list_rig_state
     description: List controllers, constraints, modifiers, deformers, and skinning state on target nodes.
     source_file: action_list_rig_state.py
@@ -190,7 +190,7 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['rig_state']
   - name: apply_deformer_modifier
     description: Apply a common host-native deformer modifier to explicit targets.
     source_file: action_apply_deformer_modifier.py
@@ -228,8 +228,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: remove_deformer_modifier
     description: Remove matching deformer modifiers from explicit targets.
     source_file: action_remove_deformer_modifier.py
@@ -264,8 +264,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['deletion_result']
   - name: set_constraint_target
     description: Create or update a basic transform constraint target with explicit node validation.
     source_file: action_set_constraint_target.py
@@ -302,8 +302,8 @@ tools:
       imports: false
       file_output: false
       render: false
-      targets: []
-    produces: []
+      targets: ['scene_nodes']
+    produces: ['scene_nodes']
   - name: get_character_system_availability
     description: Check whether optional biped, CAT, or character helpers are available.
     source_file: action_get_character_system_availability.py
@@ -334,4 +334,4 @@ tools:
       file_output: false
       render: false
       targets: []
-    produces: []
+    produces: ['system_info']
