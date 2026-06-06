@@ -9,8 +9,8 @@
 
 `dcc-mcp-3dsmax` embeds a standards-compliant MCP Streamable HTTP server directly inside Autodesk 3ds Max. It exposes ~130 3ds Max operations as MCP tools that any AI agent (Claude, Cursor, Gemini, etc.) can call over HTTP.
 
-**Current version:** 0.1.13 <!-- x-release-please-version -->
-**Core dependency:** `dcc-mcp-core>=0.18.2,<1.0.0`
+**Current version:** 0.1.16 <!-- x-release-please-version -->
+**Core dependency:** `dcc-mcp-core>=0.18.7,<1.0.0`
 **Python:** 3.7+
 **3ds Max:** 2017+ (with pymxs)
 
