@@ -20,6 +20,11 @@ logger = logging.getLogger(__name__)
 DEFAULT_BUDGET_MS = 8
 OVERRUN_MULTIPLIER = 2.0
 
+# Module-level singleton guards against repeated create_dispatcher() calls
+# that would leak .NET Timer instances (see MaxDotNetTimerAdapter).
+_dispatcher_instance: Optional[Any] = None
+_pump_instance: Optional["MaxUiPump"] = None
+
 
 class MaxDotNetTimerAdapter:
     """Adapt ``System.Windows.Forms.Timer`` to core's host pump contract."""
@@ -158,13 +163,38 @@ class MaxUiPump:
 def create_dispatcher(
     budget_ms: float = DEFAULT_BUDGET_MS,
 ) -> Tuple[Any, Optional[MaxUiPump]]:
-    """Create the dispatcher/pump pair for the current 3ds Max environment."""
+    """Create the dispatcher/pump pair for the current 3ds Max environment.
+
+    Returns a cached singleton on subsequent calls to guard against
+    repeated .NET Timer creation (see MaxDotNetTimerAdapter).
+    """
+    global _dispatcher_instance, _pump_instance
+
+    if _dispatcher_instance is not None:
+        return _dispatcher_instance, _pump_instance
+
     if _is_standalone_environment():
-        return MaxStandaloneDispatcher(), None
+        _dispatcher_instance = MaxStandaloneDispatcher()
+        _pump_instance = None
+        return _dispatcher_instance, _pump_instance
 
     dispatcher = MaxUiDispatcher()
     pump = MaxUiPump(dispatcher, budget_ms=budget_ms)
+    _dispatcher_instance = dispatcher
+    _pump_instance = pump
     return dispatcher, pump
+
+
+def reset_dispatcher() -> None:
+    """Clear the cached singleton so a fresh dispatcher/pump is created next call."""
+    global _dispatcher_instance, _pump_instance
+    _dispatcher_instance = None
+    _pump_instance = None
+
+
+def get_dispatcher() -> Tuple[Any, Optional[MaxUiPump]]:
+    """Return the cached dispatcher/pump singleton, or ``(None, None)``."""
+    return _dispatcher_instance, _pump_instance
 
 
 def create_pumped_dispatcher(
