@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.19](https://github.com/dcc-mcp/dcc-mcp-3dsmax/compare/v0.1.18...v0.1.19) (2026-06-09)
+
+
+### Bug Fixes
+
+* **pump:** add singleton guard and proper uninstall for .NET Timer lifecycle ([3302f08](https://github.com/dcc-mcp/dcc-mcp-3dsmax/commit/3302f08d633bdd317d9a24c9fc1c1ee75fbfb0e3))
+* **pump:** add singleton guard and proper uninstall for .NET Timer lifecycle ([d2aea45](https://github.com/dcc-mcp/dcc-mcp-3dsmax/commit/d2aea45a03042da0f60548bf1cbb6b09334d00fd))
+* **pump:** add singleton guard and proper uninstall for .NET Timer lifecycle ([#89](https://github.com/dcc-mcp/dcc-mcp-3dsmax/issues/89)) ([3302f08](https://github.com/dcc-mcp/dcc-mcp-3dsmax/commit/3302f08d633bdd317d9a24c9fc1c1ee75fbfb0e3))
+
 ## [0.1.18](https://github.com/dcc-mcp/dcc-mcp-3dsmax/compare/v0.1.17...v0.1.18) (2026-06-09)
 
 
