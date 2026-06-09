@@ -131,6 +131,7 @@ def stop_sidecar_bridge(timeout: float = 5.0) -> None:
     global _sidecar_launch_contract, _sidecar_process
 
     _stop_embedded_server_if_loaded()
+    _uninstall_embedded_pump()
 
     process = _sidecar_process
     _sidecar_process = None
@@ -155,6 +156,21 @@ def _stop_embedded_server_if_loaded() -> None:
     stop = getattr(server_module, "stop_server", None)
     if callable(stop):
         stop()
+
+
+def _uninstall_embedded_pump() -> None:
+    """Uninstall the embedded pump's .NET Timer and reset the singleton cache.
+
+    Uses ``sys.modules`` lookup instead of a direct import so that calling
+    ``stop_sidecar_bridge()`` alone does not pull in ``dcc_mcp_core``.
+    """
+    pump_mod = sys.modules.get("dcc_mcp_3dsmax.dispatcher.pump")
+    if pump_mod is None:
+        return
+    _, pump = pump_mod.get_dispatcher()
+    if pump is not None:
+        pump.uninstall()
+    pump_mod.reset_dispatcher()
 
 
 def start_embedded_sidecar_bridge(
