@@ -1,0 +1,8 @@
+fix: bump to Beta stability, align core dependency with Maya release train
+
+- Development Status: Alpha -> Beta, matching dcc-mcp-maya v0.8.13
+- dcc-mcp-core dependency: >=0.18.20 -> >=0.18.21 (align with Maya)
+- Replace misplaced Maya scripts with proper 3ds Max demos:
+  - create_balls_with_dynamics.py: 3ds Max pymxs particle demo
+  - import_balls_fbx.py: 3ds Max FBX import demo
+- All 198 tests pass (0 failures, 1 skipped)

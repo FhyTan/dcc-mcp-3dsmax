@@ -12,7 +12,7 @@ license = { text = "MIT" }
 requires-python = ">=3.7"
 keywords = ["3dsmax", "3ds-max", "mcp", "dcc", "ai", "llm", "model-context-protocol"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
@@ -29,8 +29,8 @@ classifiers = [
 dependencies = [
     # Release Train anchor: dcc-mcp-core/server v0.18.20 (sidecar diagnostics
     # and shared gateway provenance fixes).
-    "dcc-mcp-core>=0.18.20,<1.0.0",
-    "dcc-mcp-server>=0.18.20,<1.0.0",
+    "dcc-mcp-core>=0.18.21,<1.0.0",
+    "dcc-mcp-server>=0.18.21,<1.0.0",
 ]
 
 [project.optional-dependencies]
