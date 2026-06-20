@@ -217,6 +217,7 @@ server.shutdown()                  # stop and cleanup
 `3dsmax-modeling` (4): `create_box`, `create_sphere`, `create_cylinder`, `create_plane`
 
 `3dsmax-geometry-io` (5): `validate_geometry_file`, `import_fbx`, `import_geometry`, `export_fbx`, `export_obj`
+`3dsmax-import-to-scene` (1): `import_to_scene`
 
 `3dsmax-mesh-ops` (13): `get_mesh_topology`, `get_selected_mesh_topology`, `get_smoothing_groups`, `get_modifier_stack`, `triangulate_meshes`, `cleanup_meshes`, `attach_meshes`, `detach_selected_faces`, `apply_subdivision`, `create_proxy_meshes`, `set_explicit_normals`, `clear_explicit_normals`, `assign_smoothing_group`
 
@@ -252,6 +253,7 @@ server.shutdown()                  # stop and cleanup
 | Inspect scene | `3dsmax_scene__get_scene_info` → `3dsmax_scene__list_scene_nodes` → `3dsmax_scene__get_selection` |
 | Create and texture a box | `load_skill("3dsmax-modeling")` → `3dsmax_modeling__create_box` → `load_skill("3dsmax-materials")` → `3dsmax_materials__create_standard_material` → `3dsmax_materials__apply_material` |
 | Import + mesh cleanup + export | `load_skill("3dsmax-geometry-io")` → `3dsmax_geometry_io__import_fbx` → `load_skill("3dsmax-mesh-ops")` → `3dsmax_mesh_ops__cleanup_meshes` → `3dsmax_geometry_io__export_fbx` |
+| Asset descriptor import | `load_skill("3dsmax-import-to-scene")` → `3dsmax_import_to_scene__import_to_scene` |
 | UV unwrap and texture atlas | `load_skill("3dsmax-uv-atlas")` → `3dsmax_uv_atlas__unwrap_uvs` → `3dsmax_uv_atlas__pack_uvs` → `3dsmax_uv_atlas__prepare_texture_atlas` |
 | Set up lighting and render | `load_skill("3dsmax-camera-lighting")` → `3dsmax_camera_lighting__create_camera` → `3dsmax_camera_lighting__create_three_point_light_rig` → `load_skill("3dsmax-render")` → `3dsmax_render__set_render_settings` → `3dsmax_render__capture_viewport` |
 | Animate and bake | `load_skill("3dsmax-animation")` → `3dsmax_animation__set_keyframe` → `3dsmax_animation__bake_transform_animation` |

@@ -138,6 +138,7 @@ EXPECTED_SKILLS = {
     "3dsmax-camera-lighting",
     "3dsmax-display",
     "3dsmax-geometry-io",
+    "3dsmax-import-to-scene",
     "3dsmax-materials",
     "3dsmax-mesh-ops",
     "3dsmax-modeling",

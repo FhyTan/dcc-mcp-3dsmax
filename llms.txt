@@ -41,6 +41,7 @@ server.loaded_skill_count()
 ### Stage: authoring (load on demand)
 - `3dsmax_modeling__create_box`, `create_sphere`, `create_cylinder`, `create_plane`
 - `3dsmax_geometry_io__validate_geometry_file`, `import_fbx`, `import_geometry`, `export_fbx`, `export_obj`
+- `3dsmax_import_to_scene__import_to_scene`
 - `3dsmax_mesh_ops__get_mesh_topology`, `get_selected_mesh_topology`, `get_smoothing_groups`, `get_modifier_stack`, `triangulate_meshes`, `cleanup_meshes`, `attach_meshes`, `detach_selected_faces`, `apply_subdivision`, `create_proxy_meshes`, `set_explicit_normals`, `clear_explicit_normals`, `assign_smoothing_group`
 - `3dsmax_uv_atlas__list_uv_channels`, `create_uv_channel`, `delete_uv_channel`, `copy_uv_channel`, `get_uv_shell_summary`, `apply_uv_projection`, `unwrap_uvs`, `pack_uvs`, `detect_uv_overlaps`, `normalize_uvs`, `prepare_texture_atlas`
 - `3dsmax_materials__create_standard_material`, `apply_material`, `list_scene_materials`, `list_node_material_assignments`, `inspect_material`, `list_bitmap_connections`, `create_physical_material`, `create_pbr_material`, `reset_material`, `set_material_attributes`, `assign_bitmap_texture`, `report_missing_textures`
