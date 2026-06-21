@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.28](https://github.com/dcc-mcp/dcc-mcp-3dsmax/compare/v0.1.27...v0.1.28) (2026-06-21)
+
+
+### Features
+
+* add 3dsmax-asset-source skill for cross-DCC asset search ([a74688b](https://github.com/dcc-mcp/dcc-mcp-3dsmax/commit/a74688bfb836529cf60d080760f8c4a169cf051b))
+
 ## [0.1.27](https://github.com/dcc-mcp/dcc-mcp-3dsmax/compare/v0.1.26...v0.1.27) (2026-06-20)
 
 
