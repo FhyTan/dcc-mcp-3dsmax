@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.33](https://github.com/dcc-mcp/dcc-mcp-3dsmax/compare/v0.1.32...v0.1.33) (2026-07-12)
+
+
+### Bug Fixes
+
+* route direct calls through Max UI dispatcher ([#123](https://github.com/dcc-mcp/dcc-mcp-3dsmax/issues/123)) ([21e106d](https://github.com/dcc-mcp/dcc-mcp-3dsmax/commit/21e106d378421d8baf69876461ba0042e81ba9e8))
+
 ## [0.1.32](https://github.com/dcc-mcp/dcc-mcp-3dsmax/compare/v0.1.31...v0.1.32) (2026-07-08)
 
 
