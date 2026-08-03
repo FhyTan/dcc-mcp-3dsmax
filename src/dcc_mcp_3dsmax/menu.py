@@ -8,7 +8,11 @@ from typing import Any, Optional
 MENU_TITLE = "DCC MCP"
 MACRO_CATEGORY = "DCC MCP"
 SHUTDOWN_CALLBACK_ID = "dcc_mcp_3dsmax_shutdown"
+MENU_CALLBACK_ID = "dcc_mcp_3dsmax_menu"
 MENU_CONTEXT_ID = "0x3D5A9765"
+
+# 3ds Max 2025+ replaced the legacy menuMan API with the new CUI menu system.
+_MENU_NEW_CUI_MIN_VERSION = 27000
 
 # Module-level cached instance UUID so Copy Instance ID is stable
 # across calls and matches the server when it is running.
@@ -53,9 +57,7 @@ def _clipboard_set(text: str) -> bool:
     """
     for module_name in ("PySide2", "PySide6"):
         try:
-            qt_widgets = __import__(
-                module_name + ".QtWidgets", fromlist=["QtWidgets"]
-            )
+            qt_widgets = __import__(module_name + ".QtWidgets", fromlist=["QtWidgets"])
             app = qt_widgets.QApplication.instance()
             if app is not None:
                 app.clipboard().setText(text)
@@ -157,7 +159,11 @@ def install_menu() -> bool:
     rt = _runtime()
     if rt is None:
         return False
-    rt.execute(_menu_script())
+
+    if _uses_new_menu_system():
+        rt.execute(_menu_script_2025())
+    else:
+        rt.execute(_menu_script_legacy())
     return True
 
 
@@ -179,7 +185,14 @@ def _runtime() -> Any:
         return None
 
 
-def _menu_script() -> str:
+def _uses_new_menu_system() -> bool:
+    from dcc_mcp_3dsmax._version_probe import get_3dsmax_version_number
+
+    version = get_3dsmax_version_number()
+    return version is not None and version >= _MENU_NEW_CUI_MIN_VERSION
+
+
+def _menu_script_legacy() -> str:
     return r"""
 macroScript DccMcp3dsmax_CopyInstanceId
 category:"DCC MCP"
@@ -252,18 +265,111 @@ if menuMan.findMenu "DCC MCP" == undefined do
 """
 
 
+def _menu_script_2025() -> str:
+    return r"""
+macroScript DccMcp3dsmax_CopyInstanceId
+category:"DCC MCP"
+buttonText:"Copy Instance ID"
+tooltip:"Copy dcc-mcp instance UUID to clipboard"
+(
+    on execute do python.Execute "import dcc_mcp_3dsmax; dcc_mcp_3dsmax.copy_instance_id()"
+)
+
+macroScript DccMcp3dsmax_StartSidecar
+category:"DCC MCP"
+buttonText:"Start Server"
+tooltip:"Start dcc-mcp-3dsmax server"
+(
+    on execute do python.Execute "import dcc_mcp_3dsmax; dcc_mcp_3dsmax.main()"
+)
+
+macroScript DccMcp3dsmax_StopSidecar
+category:"DCC MCP"
+buttonText:"Stop Server"
+tooltip:"Stop dcc-mcp-3dsmax server"
+(
+    on execute do python.Execute "import dcc_mcp_3dsmax; dcc_mcp_3dsmax.stop_sidecar_bridge()"
+)
+
+macroScript DccMcp3dsmax_OpenAdmin
+category:"DCC MCP"
+buttonText:"Open Gateway Admin"
+tooltip:"Open the DCC MCP gateway admin panel"
+(
+    on execute do shellLaunch "http://127.0.0.1:9765/admin?panel=instances" ""
+)
+
+macroScript DccMcp3dsmax_PrintStatus
+category:"DCC MCP"
+buttonText:"Server Info"
+tooltip:"Print dcc-mcp-3dsmax sidecar and bridge status"
+(
+    on execute do python.Execute "import dcc_mcp_3dsmax; dcc_mcp_3dsmax.print_status()"
+)
+
+macroScript DccMcp3dsmax_AboutDccMcp
+category:"DCC MCP"
+buttonText:"About DCC MCP"
+tooltip:"Show dcc-mcp-3dsmax version and instance information"
+(
+    on execute do python.Execute "import dcc_mcp_3dsmax; dcc_mcp_3dsmax.about_dcc_mcp()"
+)
+
+-- 3ds Max 2025+ new CUI menu system: menus are built by Max from registered
+-- #cuiRegisterMenus callbacks. The action table id for all macroScripts is
+-- 647394 and actions are addressed as "<name>`<category>".
+function dccMcp3dsmaxRegisterMenus =
+(
+    local menuMgr = callbacks.notificationParam()
+    if menuMgr == undefined do return false
+    local mainMenuBar = menuMgr.mainMenuBar
+    if mainMenuBar == undefined do return false
+
+    local alreadyInstalled = false
+    for existing in menuMgr.topLevelMenus where existing.title == "DCC MCP" do alreadyInstalled = true
+    if alreadyInstalled do return true
+
+    local dccSubMenu = mainMenuBar.CreateSubMenu "3D5A9765-0000-0000-0000-000000000001" "DCC MCP"
+    dccSubMenu.CreateAction "3D5A9765-0000-0000-0000-000000000002" 647394 "DccMcp3dsmax_CopyInstanceId`DCC MCP" title:"Copy Instance ID"
+    dccSubMenu.CreateSeparator "3D5A9765-0000-0000-0000-000000000003"
+    dccSubMenu.CreateAction "3D5A9765-0000-0000-0000-000000000004" 647394 "DccMcp3dsmax_StartSidecar`DCC MCP" title:"Start Server"
+    dccSubMenu.CreateAction "3D5A9765-0000-0000-0000-000000000005" 647394 "DccMcp3dsmax_StopSidecar`DCC MCP" title:"Stop Server"
+    dccSubMenu.CreateSeparator "3D5A9765-0000-0000-0000-000000000006"
+    dccSubMenu.CreateAction "3D5A9765-0000-0000-0000-000000000007" 647394 "DccMcp3dsmax_OpenAdmin`DCC MCP" title:"Open Gateway Admin"
+    dccSubMenu.CreateAction "3D5A9765-0000-0000-0000-000000000008" 647394 "DccMcp3dsmax_PrintStatus`DCC MCP" title:"Server Info"
+    dccSubMenu.CreateSeparator "3D5A9765-0000-0000-0000-000000000009"
+    dccSubMenu.CreateAction "3D5A9765-0000-0000-0000-00000000000A" 647394 "DccMcp3dsmax_AboutDccMcp`DCC MCP" title:"About DCC MCP"
+    return true
+)
+
+callbacks.removeScripts id:#dcc_mcp_3dsmax_menu
+callbacks.addScript #cuiRegisterMenus dccMcp3dsmaxRegisterMenus id:#dcc_mcp_3dsmax_menu
+
+-- Force a menu rebuild so the callback fires immediately when this script is
+-- installed at runtime; at startup the notification is emitted automatically.
+-- local cuiMenuMgr = maxops.GetICuiMenuMgr()
+-- cuiMenuMgr.LoadConfiguration (cuiMenuMgr.GetCurrentConfiguration())
+print "dcc-mcp-3dsmax menu installed"
+"""
+
+
 def remove_menu() -> bool:
     """Remove the DCC MCP menu from 3ds Max main menu bar. Idempotent — safe to
     call even when the menu, macros, or context do not exist."""
     rt = _runtime()
     if rt is None:
         return False
-    rt.execute(_remove_menu_script())
+
+    if _uses_new_menu_system():
+        rt.execute(_remove_menu_script_2025())
+    else:
+        rt.execute(_remove_menu_script_legacy())
     return True
 
 
-def _remove_menu_script() -> str:
+def _remove_menu_script_legacy() -> str:
     return r"""
+(
 local userMacrosDir = getDir #userMacros
 
 -- Idempotent: silently skip when menu / macros / context are already absent.
@@ -306,6 +412,46 @@ try (
 ) catch()
 
 print "dcc-mcp-3dsmax menu removed"
+)
+"""
+
+
+def _remove_menu_script_2025() -> str:
+    return r"""
+(
+local userMacrosDir = getDir #userMacros
+
+try (callbacks.removeScripts id:#dcc_mcp_3dsmax_menu) catch()
+
+-- The menu is built by Max from the registered #cuiRegisterMenus callback,
+-- so it is removed by unregistering the callback and rebuilding the menu
+-- tree from the current configuration.
+try (
+    local cuiMenuMgr = maxops.GetICuiMenuMgr()
+    if cuiMenuMgr != undefined do
+        cuiMenuMgr.LoadConfiguration (cuiMenuMgr.GetCurrentConfiguration())
+) catch()
+
+try (macros.delete "DccMcp3dsmax_CopyInstanceId") catch()
+try (macros.delete "DccMcp3dsmax_AboutDccMcp") catch()
+try (macros.delete "DccMcp3dsmax_StartSidecar") catch()
+try (macros.delete "DccMcp3dsmax_StopSidecar") catch()
+try (macros.delete "DccMcp3dsmax_OpenAdmin") catch()
+try (macros.delete "DccMcp3dsmax_PrintStatus") catch()
+
+try (deleteFile (userMacrosDir + "\DCC MCP-DccMcp3dsmax_CopyInstanceId.mcr")) catch()
+try (deleteFile (userMacrosDir + "\DCC MCP-DccMcp3dsmax_AboutDccMcp.mcr")) catch()
+try (deleteFile (userMacrosDir + "\\DCC MCP-DccMcp3dsmax_StartSidecar.mcr")) catch()
+try (deleteFile (userMacrosDir + "\\DCC MCP-DccMcp3dsmax_StopSidecar.mcr")) catch()
+try (deleteFile (userMacrosDir + "\\DCC MCP-DccMcp3dsmax_OpenAdmin.mcr")) catch()
+try (deleteFile (userMacrosDir + "\\DCC MCP-DccMcp3dsmax_PrintStatus.mcr")) catch()
+
+try (
+    callbacks.removeScripts id:#dcc_mcp_3dsmax_shutdown
+) catch()
+
+print "dcc-mcp-3dsmax menu removed"
+)
 """
 
 
