@@ -973,9 +973,9 @@ class TestMenuIntegration:
 
     def test_menu_script_contains_expected_commands(self):
         """Menu script exposes runtime lifecycle and admin commands."""
-        from dcc_mcp_3dsmax.menu import _menu_script
+        from dcc_mcp_3dsmax.menu import _menu_script_legacy
 
-        script = _menu_script()
+        script = _menu_script_legacy()
         assert 'menuMan.findMenu "DCC MCP"' in script
         assert "DccMcp3dsmax_StartSidecar" in script
         assert "dcc_mcp_3dsmax.main()" in script
@@ -1005,9 +1005,9 @@ class TestMenuIntegration:
 
     def test_remove_menu_script_cleans_mcr_files(self):
         """remove_menu deletes persisted .mcr files from #userMacros."""
-        from dcc_mcp_3dsmax.menu import _remove_menu_script
+        from dcc_mcp_3dsmax.menu import _remove_menu_script_legacy
 
-        script = _remove_menu_script()
+        script = _remove_menu_script_legacy()
         assert "getDir #userMacros" in script
         assert "DCC MCP-DccMcp3dsmax_StartSidecar.mcr" in script
         assert "DCC MCP-DccMcp3dsmax_StopSidecar.mcr" in script
